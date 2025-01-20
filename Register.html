@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clg project</title>
+    <link rel="stylesheet" href="Register.css">
+</head>
+
+<body>
+    <div class="modechager">
+        <button id="mode">Change Mode</button>
+    </div>
+    <div class="cc">
+        <h1>Get Started Now</h1>
+        <p>Enter your Credentials to access your account</p>
+        <button><b>Login with Google</b></button>
+        <button><b>Login with Apple</b></button>
+    </div>
+    <hr>
+   
+    <form  name="frmContact" class="needs-validation " method="post" action="contact.php">
+        <div class="container1">
+            <div class="rotating-border">
+
+
+            <label for="email address">Email Address</label><br>
+            <input type="email" id="Email address" name="EmailAddress"  placeholder="Email address" required><br><br>
+            <label for="Username">Username</label><br>
+            <input type="text" id="Username" name="UserName" placeholder="Username" required><br><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="Password" placeholder="min 8 chars" minlength="8" required>
+            <input type="checkbox" id="showPassword" onclick="togglePassword()"> <br><br>
+            <input type="checkbox" name="checkbox" required>
+            <span>i agree to the</span>&nbsp;<span1"><u>Terms & Privacy</u></span1>
+                <br><br>
+
+               <button><b>Register</b></a></button>
+              
+                <p>Already a member?&nbsp;
+                    <a href="Login.html">Login</a>
+                </div>
+        </div>
+        </div>
+    </form>
+    <script>
+        let modeBtn = document.querySelector("#mode");
+let currMode = "light"; // current mode is light
+
+modeBtn.addEventListener("click", () => {
+    if (currMode === "light") {
+        currMode = "dark";
+        document.querySelector("body").style.backgroundColor = "black";
+    } else {
+        currMode = "light";
+        document.querySelector("body").style.backgroundColor = "#1b2141";
+    }
+    console.log(currMode);
+});
+
+    </script>
+</body>
+
+</html>

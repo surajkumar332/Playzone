@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clg project</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="modechanger">
+        <button id="mode">Change Mode</button>
+    </div>
+</form>
+<form action="connect.php" >
+    <div class="container2">
+        <label for="Username">Username</label><br>
+        <input type="text" id="Username" placeholder="Username" name="Username" required><br><br>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" placeholder="min 8 chars" name="password" required><br><br>
+        <button><a href="playzone.html">Login</a> </button>
+    </div>
+</form>
+<script>
+    let modeBtn = document.querySelector("#mode");
+let currMode = "light"; // current mode is light
+
+modeBtn.addEventListener("click", () => {
+    if (currMode === "light") {
+        currMode = "dark";
+        document.querySelector("body").style.backgroundColor = "black";
+    } else {
+        currMode = "light";
+        document.querySelector("body").style.backgroundColor = "#1b2141";
+
+    }
+    console.log(currMode);
+});
+
+</script>
+</body>
+</html>

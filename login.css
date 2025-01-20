@@ -1,0 +1,64 @@
+body {
+  background-color: #050e2d;
+}
+
+.container2 {
+  background-color: white;
+  height: 230px;
+  width: 270px;
+  border: 2px solid rgb(115, 138, 157);
+  margin: 23px;
+  padding: 34px;
+  border-radius: 23px;
+  box-shadow: 3px 3px 4px whitesmoke;
+  display: ruby-text;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+/* button{
+  background-color:whitesmoke;
+  
+}
+button a{
+  text-decoration: none;
+}
+.container2 button :hover{
+  background-color: #1aeeef;
+  font-weight: bolder;
+} */
+button{
+  background-color: rgb(131, 129, 129); 
+  border: 2px dotted rgb(94, 94, 206);
+  color: rgb(63, 61, 61);
+  border-radius: 34em;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px -12px white;
+
+}
+button::before {
+  content: '';
+  width: 0;
+  height: 3em;
+  border-radius: 30em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #fd850f 0%, #f9f049 100%);
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+
+}
+button:hover::before {
+  width: 9em;
+
+}
