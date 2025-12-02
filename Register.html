@@ -1,65 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <title>Register | Playzone</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>clg project</title>
-    <link rel="stylesheet" href="Register.css">
+    <link rel="stylesheet" href="register.css">
 </head>
-
 <body>
-    <div class="modechager">
-        <button id="mode">Change Mode</button>
+
+<div class="register-container">
+    <div class="register-box">
+        <h2>Create Your Account</h2>
+        <p>Join Playzone to explore amazing games</p>
+
+       <form onsubmit="registerUser(event)">
+
+    <div class="input-group">
+        <label>Full Name</label>
+        <input type="text" id="regName" placeholder="Enter your name" required>
     </div>
-    <div class="cc">
-        <h1>Get Started Now</h1>
-        <p>Enter your Credentials to access your account</p>
-        <button><b>Login with Google</b></button>
-        <button><b>Login with Apple</b></button>
+
+    <div class="input-group">
+        <label>Email</label>
+        <input type="email" id="regEmail" placeholder="Enter your email" autocomplete="off" required>
     </div>
-    <hr>
-   
-    <form  name="frmContact" class="needs-validation " method="post" action="contact.php">
-        <div class="container1">
-            <div class="rotating-border">
+
+    <div class="input-group password-box">
+    <label>Password</label>
+    <input type="password" id="regPassword" placeholder="Create password" autocomplete="new-password" required>
+    <span onclick="toggleRegPassword()">👁️</span>
+</div>
+
+<div class="input-group password-box">
+    <label>Confirm Password</label>
+    <input type="password" id="regConfirm" placeholder="Confirm password" autocomplete="new-password" required>
+    <span onclick="toggleRegConfirm()">👁️</span>
+</div>
 
 
-            <label for="email address">Email Address</label><br>
-            <input type="email" id="Email address" name="EmailAddress"  placeholder="Email address" required><br><br>
-            <label for="Username">Username</label><br>
-            <input type="text" id="Username" name="UserName" placeholder="Username" required><br><br>
-            <label for="password">Password</label><br>
-            <input type="password" id="password" name="Password" placeholder="min 8 chars" minlength="8" required>
-            <input type="checkbox" id="showPassword" onclick="togglePassword()"> <br><br>
-            <input type="checkbox" name="checkbox" required>
-            <span>i agree to the</span>&nbsp;<span1"><u>Terms & Privacy</u></span1>
-                <br><br>
+    <button type="submit" class="btn">Register</button>
 
-               <button><b>Register</b></a></button>
-              
-                <p>Already a member?&nbsp;
-                    <a href="Login.html">Login</a>
-                </div>
-        </div>
-        </div>
-    </form>
-    <script>
-        let modeBtn = document.querySelector("#mode");
-let currMode = "light"; // current mode is light
+    <div class="login-link">
+        Already have an account?
+        <a href="login.html">Login</a>
+    </div>
 
-modeBtn.addEventListener("click", () => {
-    if (currMode === "light") {
-        currMode = "dark";
-        document.querySelector("body").style.backgroundColor = "black";
-    } else {
-        currMode = "light";
-        document.querySelector("body").style.backgroundColor = "#1b2141";
-    }
-    console.log(currMode);
-});
+</form>
 
-    </script>
+    </div>
+</div>
+<script src="auth.js"></script>
 </body>
-
 </html>

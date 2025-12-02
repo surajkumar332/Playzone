@@ -1,58 +1,70 @@
-// sticky navbar
 function searchGame() {
-    let input = document.getElementById('search-box').value.toLowerCase();
-    let cards = document.getElementsByClassName('card');
+    let input = document.getElementById("search-box").value
+        .toLowerCase()
+        .trim();
+
+    let cards = document.getElementsByClassName("card");
 
     for (let i = 0; i < cards.length; i++) {
-        let gameName = cards[i].getElementsByTagName('h4')[0].innerText.toLowerCase();
+        let title = cards[i].getElementsByTagName("h4")[0];
+        if (!title) continue;
 
-        if (gameName.includes(input)) {
-            cards[i].style.display = "";
+        let gameName = title.innerText.toLowerCase();
+
+        if (gameName.startsWith(input) || gameName.includes(input)) {
+            cards[i].hidden = false;   
         } else {
-            cards[i].style.display = "none";
+            cards[i].hidden = true;  
         }
     }
 }
+
+
+// =============================
+// SCROLL ON ENTER
+// =============================
 document.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-        document.getElementById("Games").scrollIntoView({ behavior: 'smooth' });
+        let games = document.getElementById("Games");
+        if (games) {
+            games.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 });
-//    hide register button
 
+// =============================
+// HIDE REGISTER BUTTON
+// =============================
 window.onload = function () {
-    // Check if the user is already registered
     if (localStorage.getItem('isRegistered') === 'true') {
-        // Hide the Register button
-        document.getElementById('registerButton').style.display = 'none';
+        let btn = document.getElementById('registerButton');
+        if (btn) btn.style.display = 'none';
     }
 };
 
-// Register User Function
 function registerUser() {
-    // Set a flag in localStorage to indicate the user is registered
     localStorage.setItem('isRegistered', 'true');
-
-    // Hide the Register button
-    document.getElementById('registerButton').style.display = 'none';
+    let btn = document.getElementById('registerButton');
+    if (btn) btn.style.display = 'none';
 }
 
-// Mode Dark And Light
-
-
+// =============================
+// DARK / LIGHT MODE (ERROR SAFE)
+// =============================
 const modeBtn = document.querySelector("#mode");
 const body = document.body;
 
-// Initial mode
 let currMode = "light";
 body.classList.add("light-mode", "transition");
 
-modeBtn.addEventListener("click", () => {
-  if (currMode === "light") {
-    body.classList.replace("light-mode", "dark-mode");
-    currMode = "dark";
-  } else {
-    body.classList.replace("dark-mode", "light-mode");
-    currMode = "light";
-  }
-});
+if (modeBtn) {   // ✅ NULL SAFETY
+    modeBtn.addEventListener("click", () => {
+        if (currMode === "light") {
+            body.classList.replace("light-mode", "dark-mode");
+            currMode = "dark";
+        } else {
+            body.classList.replace("dark-mode", "light-mode");
+            currMode = "light";
+        }
+    });
+}

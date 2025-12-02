@@ -2,40 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Login | Playzone</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>clg project</title>
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="modechanger">
-        <button id="mode">Change Mode</button>
+
+<div class="login-container">
+    <div class="login-box">
+        <h2>Welcome Back</h2>
+        <p>Login to continue playing</p>
+
+        <form onsubmit="loginUser(event)">
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="loginEmail" autocomplete="off" required>
+            </div>
+
+            <div class="input-group password-box">
+                <label>Password</label>
+                <input type="password" id="loginPassword" autocomplete="new-password" required>
+                <span onclick="togglePassword()">👁️</span>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+
+            <div class="signup-link">
+                Don't have an account?
+                <a href="register.html">Register</a>
+            </div>
+        </form>
     </div>
-</form>
-<form action="connect.php" >
-    <div class="container2">
-        <label for="Username">Username</label><br>
-        <input type="text" id="Username" placeholder="Username" name="Username" required><br><br>
-        <label for="password">Password</label><br>
-        <input type="password" id="password" placeholder="min 8 chars" name="password" required><br><br>
-        <button><a href="playzone.html">Login</a> </button>
-    </div>
-</form>
-<script>
-    let modeBtn = document.querySelector("#mode");
-let currMode = "light"; // current mode is light
+</div>
 
-modeBtn.addEventListener("click", () => {
-    if (currMode === "light") {
-        currMode = "dark";
-        document.querySelector("body").style.backgroundColor = "black";
-    } else {
-        currMode = "light";
-        document.querySelector("body").style.backgroundColor = "#1b2141";
-
-    }
-    console.log(currMode);
-});
-
-</script>
+<script src="auth.js"></script>
 </body>
 </html>
